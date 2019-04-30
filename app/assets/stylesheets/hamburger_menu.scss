@@ -1,0 +1,209 @@
+//自サイト用の専用配色
+$base-color1: #a3d749;
+$base-color2: #90ca3d;
+$base-color3: #fddb64;
+
+
+
+
+/*================================================
+ *  ハンバーガーメニューアイコン
+ ================================================*/
+
+ #nav-toggle {
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    height: 32px;
+    z-index: 9999;
+    cursor: pointer;
+  
+    div {
+      position: relative;
+      width: 36px;
+    }
+    span {
+      width: 80%;
+      height: 2px;
+      left: 0;
+      display: block;
+      background: #333;
+      position: absolute;
+      transition: transform .6s ease-in-out, top .5s ease;
+  
+      /* ３本線の縦位置の指定 */
+      &:nth-child(1) {
+        top: 2px;
+      }
+      &:nth-child(2) {
+        top: 14px;
+      }
+      &:nth-child(3) {
+        top: 26px;
+      }
+    }
+  
+    /* マウスオーバー時の３本線の変化 */
+    &:hover span:nth-child(1) {
+      top: 6px;
+    }
+    &:hover span:nth-child(3) {
+      top: 22px;
+    }
+  }
+  
+  /* クリック時のメニューアイコン */
+  .open {
+    #nav-toggle span {
+      background: #fff;
+  
+      &:nth-child(1) {
+        top: 15px;
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        top: 15px;
+        width: 0;
+        left: 50%;
+      }
+      &:nth-child(3) {
+        top: 15px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  
+  /*================================================
+ *  メニューウインドウ
+ ================================================*/
+
+#nav-window {
+    background: #000;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 990;
+    text-align: center;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 29px;
+    opacity: 0;
+    transition: opacity .6s ease, visibility .6s ease;
+    nav {
+      position: fixed;
+      top: 20%;
+      // right: 50%;
+    }
+  }
+  
+  /* メニューが閉じられるときのスタイルとなる */
+  #nav-window {
+    a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 0;
+      transition: color .6s ease;
+      &:hover {
+        color: $base-color1;
+      }
+    }
+  
+    ul {
+      list-style: none;
+  
+      li {
+        display: inline-block;
+        padding: .2em .7em;
+        opacity: 0;
+        transform: translateX(200px);
+        transition:  transform .6s ease, opacity .2s ease;
+  
+        // 各メニュー表示の遅延設定
+        &:nth-child(2) {
+          transition-delay: .15s;
+        }
+        &:nth-child(3) {
+          transition-delay: .3s;
+        }
+        &:nth-child(4) {
+          transition-delay: .45s;
+        }
+        &:nth-child(5) {
+          transition-delay: .6s;
+        }
+        &:nth-child(6) {
+          transition-delay: .75s;
+        }
+        &:nth-child(7) {
+          transition-delay: .9s;
+        }
+      }
+    }
+  } 
+  
+  /* クリック時のメニューウインドウ */
+  .open {
+    #nav-window {
+      visibility: visible;
+      opacity: 1;
+    }
+  
+    #nav-window li {
+      opacity: 1;
+      transform: translateX(0);
+      transition:  transform 1s ease, opacity .9s ease;
+    }
+  }
+
+  /*================================================
+ * スマートフォン向けスタイル
+ * メニューアイコンの位置調整のみ
+ ================================================*/
+@media screen and (max-width:896px) {
+
+    #nav-toggle {
+      bottom: 30%;
+  
+      /* マウスオーバー時に変化させないようにする */
+      &:hover span:nth-child(1) {
+        top: 2px;
+      }
+      &:hover span:nth-child(3) {
+        top: 26px;
+      }
+    }
+  
+    /* メニューを縦に並べる */
+    #nav-window nav ul li {
+      display: block;
+    }
+  
+    /* クリック時のメニューアイコン */
+    .open {
+      #nav-toggle span {
+        background: #fff;
+  
+        &:nth-child(1) {
+          top: 15px;
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          top: 15px;
+          width: 0;
+          left: 50%;
+        }
+        &:nth-child(3) {
+          top: 15px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  
+  }

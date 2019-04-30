@@ -2,14 +2,21 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
-    <%=render 'layouts/head'%>
-    <%= render 'layouts/shim'%>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                               'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application',
+                               'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
+    <!-- スマートフォン用設定 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   </head>
+
   <body>
-    <%= render 'layouts/header'%>
-    <div class="container">
+    <%= render 'layouts/header' %>
+    <div>
       <%= yield %>
-      <%= render 'layouts/footer'%>
     </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
