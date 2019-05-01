@@ -8,6 +8,12 @@ $base-color2: #90ca3d;
 $base-color3: #fddb64;
 
 
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 /*================================================
  *  一般・共通設定
  ================================================*/
@@ -18,6 +24,7 @@ body {
   color: white;
   overflow-x: hidden;   //横スクロール禁止
   background: $base-color1 image-url("bg.png") fixed  0 0;
+  background-size: 128px 128px;
 }
 
 #contents {
@@ -337,4 +344,14 @@ background: rgb(255, 255, 255);
     padding: 10px 0px 0px 0px;
     border: 1px solid blue;
   }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
