@@ -1,0 +1,37 @@
+//自サイト用の専用配色
+$base-color1: #a3d749;
+$base-color2: #90ca3d;
+$base-color3: #fddb64;
+
+/*================================================
+ *  ドロップダウンメニュー
+ ================================================*/
+
+ ul.menu li {
+    position: relative;
+    display: block;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: .25s ease-in-out;
+    border: 1px solid red;
+    &:hover {
+      color: $base-color3;
+    }
+  }
+  ul.sub {
+    position: absolute;
+    margin-left: -3rem;
+    transition: .75s ease-in-out;  
+    border: 1px solid red;
+  }
+  
+  /* ヘッダー背景がない場合はサブメニュー背景も透明 */
+  .sub-bgHidden {
+    background-color: transparent;
+  }
+  
+  /* ヘッダー背景がある場合はサブメニューの背景あり */
+  .sub-bgVisible {
+    background-color: $base-color2;
+  }
