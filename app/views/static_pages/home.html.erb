@@ -1,157 +1,106 @@
 <% provide(:title, "Home") %>
-
-<div id="contents">
-
- <!-- 領域全体 -->
-  <section class="non-background-area grid-block">
-
-    <!-- グリッド表示 -->
-    <div class="container grid-container">
-
-      <!-- 記事1 -->
-      <div class="grid-content grid-block-1">
-        <!-- イメージ -->
-        <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
-          <%= image_tag "japanese.png", alt: "Harry" %>
-          <!-- テキスト -->
-          <div class="grid-content-text">
-            <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
-            <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
-          </div>
-        </div>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="article_form">
+        <%= render 'shared/article_form' %>
+      </section>
+    </aside>
+      <div class="col-md-8">
+       <h3>Article Feed</h3>
+       <%= render 'shared/feed' %>
       </div>
-
-      <!-- 記事2 -->
-      <div class="grid-content grid-block-2">
-        <!-- イメージ -->
-        <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
-          <%= image_tag "japanese.png", alt: "Harry" %>
-          <!-- テキスト -->
-          <div class="grid-content-text">
-            <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
-            <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 記事3 -->
-      <div class="grid-content grid-block-3">
-        <!-- イメージ -->
-        <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
-          <%= image_tag "japanese.png", alt: "Harry" %>
-          <!-- テキスト -->
-          <div class="grid-content-text">
-            <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
-            <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 記事4 -->
-      <div class="grid-content grid-block-4">
-        <!-- イメージ -->
-        <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
-          <%= image_tag "japanese.png", alt: "Harry" %>
-          <!-- テキスト -->
-          <div class="grid-content-text">
-            <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
-            <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 記事5 -->
-      <div class="grid-content grid-block-5">
-        <!-- イメージ -->
-        <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
-          <%= image_tag "japanese.png", alt: "Harry" %>
-          <!-- テキスト -->
-          <div class="grid-content-text">
-            <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
-            <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- 記事6 -->
-      <div class="grid-content grid-block-6">
-        <!-- イメージ -->
-        <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
-          <%= image_tag "japanese.png", alt: "Harry" %>
-          <!-- テキスト -->
-          <div class="grid-content-text">
-            <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
-            <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
-          </div>
-        </div>
-      </div>
-
-  </section>
-
-  <!-- 国語のコンテンツ -->
-  <div class="down-appear-trigger">
-  <div class="normal-area down-appear">
-    <div class="normal-block">
-      <div class="imgR">
-        <%= image_tag "japanese.png", :size =>'512x512', alt: "Harry" %>
-        <h1>国語<br>読み解くチカラ</h1>
-        <p>国語の授業、よくあることとは？？</p>
-      </div>
-    </div>
   </div>
+<% else %>
+  <div id="contents">
+  
+  <!-- 領域全体 -->
+    <section class="non-background-area grid-block">
+    
+          <!-- グリッド表示 -->
+          <div class="container grid-container">
 
+            <!-- 記事1 -->
+            <div class="grid-content grid-block-1">
+              <!-- イメージ -->
+              <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
+                <%= image_tag "japanese.png", alt: "Harry" %>
+                <!-- テキスト -->
+                <div class="grid-content-text">
+                  <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
+                  <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
+                </div>
+              </div>
+            </div>
 
-  <!-- 社会のコンテンツ -->
-  <div class="up-appear-trigger">
-  <div class="non-background-area up-appear">
-    <div class="white-block block2">
-      <div class="imgR">
-        <%= image_tag "socialstudies.png", alt: "Harry" %>
-        <h1>ピコン！<br>とひらめく力！！</h1>
-        <p>楽しくプログラミングする、まったり、ゆっくりな小動物、ハリー教授です！！</p>
-      </div>
-    </div>
+            <!-- 記事2 -->
+            <div class="grid-content grid-block-2">
+              <!-- イメージ -->
+              <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
+                <%= image_tag "japanese.png", alt: "Harry" %>
+                <!-- テキスト -->
+                <div class="grid-content-text">
+                  <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
+                  <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 記事3 -->
+            <div class="grid-content grid-block-3">
+              <!-- イメージ -->
+              <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
+                <%= image_tag "japanese.png", alt: "Harry" %>
+                <!-- テキスト -->
+                <div class="grid-content-text">
+                  <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
+                  <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 記事4 -->
+            <div class="grid-content grid-block-4">
+              <!-- イメージ -->
+              <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
+                <%= image_tag "japanese.png", alt: "Harry" %>
+                <!-- テキスト -->
+                <div class="grid-content-text">
+                  <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
+                  <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 記事5 -->
+            <div class="grid-content grid-block-5">
+              <!-- イメージ -->
+              <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
+                <%= image_tag "japanese.png", alt: "Harry" %>
+                <!-- テキスト -->
+                <div class="grid-content-text">
+                  <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
+                  <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 記事6 -->
+            <div class="grid-content grid-block-6">
+              <!-- イメージ -->
+              <div class="grid-content-image hover:shadow-raised hover:translateY-2px transition">
+                <%= image_tag "japanese.png", alt: "Harry" %>
+                <!-- テキスト -->
+                <div class="grid-content-text">
+                  <h3><%= "ハリー教授のちくっと講座".truncate(13) %></h3>
+                  <p><span><%= "パワーポイントを使った１分ミニミニプログラミング動画".truncate(32) %></span></p>
+                </div>
+              </div>
+            </div>
+          </div>  
+    </section>
   </div>
-
-
-  <!-- 数学のコンテンツ -->
-  <div class="left-slide-trigger">
-  <div class="normal-area left-slide">
-    <div class="normal-block">
-      <div class="imgL">
-        <%= image_tag "math.png", alt: "Harry" %>
-        <h1>ピコン！<br>とひらめく力！！</h1>
-        <p>楽しくプログラミングする、まったり、ゆっくりな小動物、ハリー教授です！！/p>
-      </div>  
-    </div>
-  </div>
-
-  <!-- 理科のコンテンツ -->
-  <div class="right-slide-trigger">
-  <div class="normal-area right-slide">
-    <div class="normal-block">
-      <div class="imgL">
-        <%= image_tag "science.png", alt: "Harry" %>
-        <h1>ピコン！<br>とひらめく力！！</h1>
-        <p>楽しくプログラミングする、まったり、ゆっくりな小動物、ハリー教授です！！</p>
-      </div>  
-    </div>
-  </div>
-
-  <!-- 英語のコンテンツ -->
-  <div class="right-slide-trigger">
-  <div class="normal-area right-slide">
-    <div class="normal-block">
-      <div class="imgL">
-        <%= image_tag "english.png", alt: "Harry" %>
-        <h1>ピコン！<br>とひらめく力！！</h1>
-        <p>楽しくプログラミングする、まったり、ゆっくりな小動物、ハリー教授です！！</p>
-      </div>  
-    </div>
-  </div>
-
-
- 
- 
-</div>
-
+ <% end %> 
