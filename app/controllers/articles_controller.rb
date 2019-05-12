@@ -3,7 +3,7 @@ before_action :logged_in_user, only: [:create, :destroy]
 before_action :correct_user,   only: :destroy
   
     def create
-      @article = current_user.articles.build(article_params)
+      @article = current_user.article.build(article_params)
       if @article.save
         flash[:success] = "Article created!"
         redirect_to root_url

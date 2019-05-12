@@ -7,14 +7,19 @@
         <%= @user.name %>
       </h1>
     </section>
+     <!-- 投稿フォーム -->
+      <section class="article_form">
+        <%= render 'shared/article_form' %>
+      </section>
   </aside>
+
    <div class="col-md-8">
-    <% if @user.articles.any? %>
-      <h3>Articles (<%= @user.articles.count %>)</h3>
+    <% if @user.article.any? %>
+      <h3>Articles (<%= @user.article.count %>)</h3>
       <ol class="articles">
         <%= render @articles %>
       </ol>
-      
+      <%= will_paginate @articles %>
     <% end %>
   </div>
 </div>

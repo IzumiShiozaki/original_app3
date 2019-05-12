@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:update, :destroy]
   def show
     @user = User.find(params[:id])
-    @articles = @user.articles
+    @articles = @user.article.paginate(page: params[:page])   # 投稿記事一覧用変数
+    @article = current_user.article.build if logged_in?       # 記事投稿用の空インスタンス変数
   end
 
   def new
@@ -18,6 +19,10 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def index
+    @users = User.paginate(page: params[:page])
   end
 
   private

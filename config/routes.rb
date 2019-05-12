@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users
+
   resources :articles,  only: [:create, :destroy]
+  get  '/subject', to: 'static_pages#subject'
 end
