@@ -128,6 +128,15 @@
       <%= render 'shared/feed' %>
     </div>
   <% end %>
+    <!-- 記事のフィード -->
+  <% if logged_in? %>
+    <div id="feed-list-area">
+      <!-- 記事のタイトル -->
+      <h1><%= @search %></h1>
+      <!-- 読み込んだすべての記事 -->
+      <%= render 'shared/feed' %>
+    </div>
+  <% end %>
 
 </div>
 

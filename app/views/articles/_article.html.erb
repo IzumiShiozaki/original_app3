@@ -1,11 +1,20 @@
 <li id="article-<%= article.id %>">
-  <%= link_to gravatar_for(article.user, size: 50), article.user %>
-  <span class="user"><%= link_to article.user.name, article.user %></span>
-  <span class="article_name"><%= article.title %></span>
-  <span class="article_body"><%= article.body %></span>
-  <!-- 削除リンク -->
-  <% if current_user?(article.user) %>
-    <%= link_to "delete", article, method: :delete, data: { confirm: "You sure?" } %>
-  <% end %>
+  <div class="col-md-2">
+    <div class="article_subject"><%= article.subject %></div>
+    <span class="user"><%= link_to article.user.name, article.user %></span>
+  </div>
 
+  <div class="col-md-8">
+    <span class="article_title"><%= article.title %></span>
+    <span class="article_body"><%= article.body %></span>
+  </div>
+
+  <div class="col-md-2">
+    <div class="article_update">変 更</div>
+    <% if current_user?(article.user) %>
+      <div class="article_delete">
+        <%= link_to "削 除", article, method: :delete, data: { confirm: "You sure?" } %>
+      </div>
+    <% end %>
+  </div>
 </li>
