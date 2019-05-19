@@ -28,4 +28,15 @@ module SessionsHelper
         session.delete(:user_id)
         @current_user = nil
     end
+
+      # 元のURLへ戻る
+    def redirect_before_url(default = root_path)
+      return session[:before_forwarding_url] || default
+      session.delete(:before_forwarding_url)
+    end
+
+    # 現在のURLを覚えておく    
+    def before_location(current_url)
+      session[:before_forwarding_url] = current_url
+    end
 end

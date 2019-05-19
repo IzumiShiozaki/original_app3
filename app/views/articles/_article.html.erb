@@ -10,11 +10,9 @@
   </div>
 
   <div class="col-md-2">
-    <div class="article_update">変 更</div>
-    <% if current_user?(article.user) %>
-      <div class="article_delete">
-        <%= link_to "削 除", article, method: :delete, data: { confirm: "You sure?" } %>
-      </div>
-    <% end %>
+     <!-- 詳細情報ボタン -->
+    <div class="article_update">
+      <%= link_to "詳細を見る", article %>
+    </div>
   </div>
 </li>

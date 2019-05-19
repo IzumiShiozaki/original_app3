@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @articles = @user.article.paginate(page: params[:page])   # 投稿記事一覧用変数
     @article = current_user.article.build if logged_in?       # 記事投稿用の空インスタンス変数
+    #現在のURLを記憶
+    before_location user_path
   end
 
   def new
