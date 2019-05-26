@@ -10,4 +10,16 @@ Rails.application.routes.draw do
 
   resources :articles,  only: [:show, :new, :edit, :create, :update, :destroy]
   get  '/subject', to: 'static_pages#subject'
+  resources :users do
+    member do
+      get :gooding
+    end
+  end
+  resources :goods, only: [:create, :destroy]
+    # いいねされた数を求める
+    resources :articles do
+      member do
+        get :gooders
+      end
+    end
 end

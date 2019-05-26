@@ -38,3 +38,26 @@ article_subject = "その他"
 end
 users.each { |user| user.article.create!(title: article_title, body: article_body, subject: article_subject) }
 end
+
+# UserとArticleのリレーションシップ
+users = User.all
+articles = Article.all
+
+user1  = users.first
+user2  = users.second
+article1 = articles.first
+article2 = articles.second
+
+users1 = users[1..20]
+users2 = users[10..15]
+articles1 = articles[3..50]
+articles2 = articles[10..40]
+
+# ID1のユーザーがID3〜50の記事をいいねする
+articles1.each { |article| user1.goodAdd(article) }
+# ID2のユーザーがID10〜40の記事をいいねする
+articles2.each { |article| user2.goodAdd(article) }
+# ID1から20のユーザーがID1の記事をいいねする
+users1.each { |user|  user.goodAdd(article1)}
+# ID10から15のユーザーがID2の記事をいいねする
+users2.each { |user|  user.goodAdd(article2)}

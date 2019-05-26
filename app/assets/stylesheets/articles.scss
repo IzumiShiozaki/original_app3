@@ -352,3 +352,70 @@ $base-color3: #fddb64;
     box-sizing: border-box;
   }
 }
+
+/*================================================
+ *  いいね／いいね解除ボタン
+ ================================================*/
+ .article-detail .detail_top #good_form .detail_btn {
+  width: auto;
+}
+
+//いいねカウント数
+.article-detail .detail_top #good_count {
+  width: auto;
+  height: 32px;
+  margin: 10px 1%;
+  padding: 4px 8px;
+  font-family: sans-serif;
+  font-size: calc(100% + 0.7vw);
+  font-weight: bold;
+  text-decoration: none;
+  color: $base-color3;
+  text-align: center;
+  letter-spacing: 2px;
+  border-radius: 16px;
+  background-color: white;
+  transition: .4s;
+}
+
+//記事一覧リストのいいねカウント
+.articles .index_good_count {
+  width: auto;
+  height: auto;
+  margin: 10px 1rem;
+  padding: 4px;
+  font-family: sans-serif;
+  font-size: calc(60% + 0.7vw);
+  font-weight: bold;
+  text-decoration: none;
+  color: $base-color3;
+  text-align: center;
+  letter-spacing: 2px;
+  transition: .4s;
+}
+
+//記事一覧リストのいいねアイコン画像
+.articles .index_good_icon {
+  width: auto;
+  height: auto;
+  margin: 10px 1rem 10px 0;
+  transition: .4s;
+}
+
+button {
+  background:none;
+  border:0;
+  outline:none;
+  font-size:0;
+  line-height:0;
+  overflow:visible;
+  cursor:pointer;
+  // border: 2px solid red;
+}
+
+#good_form .icon_image {
+  width: auto;
+  height: 32px;
+  margin: 7px 0rem;
+  transition: .4s;
+}
