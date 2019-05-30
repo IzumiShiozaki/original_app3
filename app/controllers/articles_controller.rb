@@ -46,7 +46,7 @@ before_action :correct_user,   only: :destroy
   private
 
     def article_params
-      params.require(:article).permit(:title, :body, :subject)
+      params.require(:article).permit(:title, :body, :subject, :picture)
     end
 
     def correct_user
